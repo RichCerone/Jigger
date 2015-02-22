@@ -30,7 +30,6 @@ function showPosition(position){
      longi = position.coords.longitude.toString().substr(0,8);
      console.log("lat " + lat);
      console.log("long " + longi);
-    //socket.emit()
     var mapOptions = {
       center : new google.maps.LatLng(lat,longi),
       zoom : 16,
@@ -38,7 +37,7 @@ function showPosition(position){
     }
      map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var latlng = new google.maps.LatLng(lat,longi);
-    google.maps.event.addDomListener(window, 'load', showPosition);
+    //google.maps.event.addDomListener(window, 'load', showPosition);
     google.maps.event.addListener(map, 'click', function(event) {
        placeMarker(event.latLng);
     });
@@ -112,8 +111,8 @@ $(document).ready(function(){
   display :none;
 }
 #map-canvas {
-  height: 200px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
   z-index: 0;
 }
 </style>

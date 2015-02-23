@@ -86,6 +86,8 @@ $(document).ready(function(){
       </center>
     </body>
   <div id="postform">
+    <center>
+  <div style="width:600px;height:100px;border:2px dotted red;">
     <table align="center">
               <tr>
                   <td>
@@ -95,15 +97,32 @@ $(document).ready(function(){
   <input type="text" class="form-control" placeholder="Location" aria-describedby="sizing-addon1" id="addr" name="addr" maxlength="200">
 </div>
     <br>
-  </td></tr></table><br>
+  </td><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+  <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td>
+    <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td>
+      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td>
+  <div class="btn-group">
+   <button type="button" class="btn btn-danger btn-lg">Post</button>
+  </div>
+</td></tr></table>
+</div>
+</center>
+<br>
   <center><b>
   OR
   <br>
   choose a spot on the map
 </b>
+<div style="width:600px;height:300px;border:2px dotted red;">
+  <table><tr><td>
    <div id="map-canvas"></div>
- </center>
+ </center></td>
+      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td>
+ <div class="btn-group">
+  <button type="button" class="btn btn-danger btn-lg">Post</button>
+</div></td></tr></table>
   </div>
+</div>
 </html>
 <style type="text/css">
 #postform {

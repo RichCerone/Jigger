@@ -7,7 +7,7 @@
     <header>
         <title>Jigger, It's Party Time</title>
     </header>
-    
+
     <body>
         <h1>Jigger</h1>
         <h6>It's Party Time</h6>

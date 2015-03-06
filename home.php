@@ -39,6 +39,28 @@ function placeMarker(location) {
               }
     });
   }
+  function extractTown(resultsArr){
+    var town = resultsArr.formatted_address.split(",");
+    for(var x = 0; x < town.length; x++){
+      if(town[x] = "Glassboro"){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  $.extend(
+{
+    redirectPost: function(location, args)
+    {
+        var form = '';
+        $.each( args, function( key, value ) {
+            value = value.split('"').join('\"')
+            form += '<input type="hidden" name="'+key+'" value="'+value+'">';
+        });
+        $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo($(document.body)).submit();
+    }
+});
    function codeLatLng(lat, lng) {
     var geocoder;
     geocoder = new google.maps.Geocoder();
@@ -46,13 +68,20 @@ function placeMarker(location) {
     geocoder.geocode({'latLng': latlng}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         if (results[1]) {
-        console.log(results[1].formatted_address);
-        var town = results[1].formatted_address.split(",",1);
-        console.log(town);
+        console.log(results[1]);
+        if(results[1].formatted_address.indexOf("Glassboro") !== -1){
+          var town = extractTown(results[1]);
+          if(town){
+            $.redirectPost('confirmDetails.php', {'addr' : results[1].formatted_address});
+          }
+        }
+         else {
+        console.log("Error");
         }
       } else {
         alert("Geocoder failed due to: " + status);
       }
+    }
     });
   }
 function showPosition(position){

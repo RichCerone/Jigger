@@ -1,10 +1,20 @@
+<!DOCTYPE HTML>
+<!--Author: Richard Cerone and Matthew Cieslak-->
+<!--Jigger Homepage-->
+<header>
+  <title>Jigger, It's Party Time</title>
+</header>
+
+<!--Various Scripts for JavaScript, Google Maps, and BootStrap.-->
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
- <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+<!--Runs google maps script.-->
 <script src="google_maps.js"></script>
-<!--Author: Richard Cerone and Matthew Cieslak-->
+
 <html>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -14,9 +24,6 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <header>
-         <title>Jigger, It's Party Time</title>
-    </header>
     <body>
       <center>
         <h1>Jigger</h1>
@@ -58,9 +65,9 @@
 </center>
 <br>
   <center><b>
-  OR
+  <p>OR</p>
   <br>
-  choose a spot on the map
+  <p>choose a spot on the map</p>
 </b>
 <div style="width:600px;height:300px;border:2px dotted red;">
   <table><tr><td>
@@ -73,11 +80,14 @@
   </div>
 </div>
 </html>
+<!--NOTE: CSS will be replaced by a template.-->
 <style type="text/css">
-#postform {
+#postform
+{
   display :none;
 }
-#map-canvas {
+#map-canvas
+{
   height: 300px;
   width: 400px;
   z-index: 0;

@@ -14,6 +14,23 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
+  <div class="modal-dialog modal-sm" id="modal">
+    <div class="modal-content">
+      <div class="input-group input-group-lg">
+        <form action="confirmDetails.php" method="POST" id="partySubmit">
+          <span class="input-group-addon" id="sizing-addon1"></span>
+           <input type="text" class="form-control" placeholder="Name the Party" aria-describedby="sizing-addon1" id="name" name="name">
+            </div>
+            <div id="addrss"></div>
+                   <br><br>
+           <input type="submit" class="btn btn-success btn-lg btn-block" value="Post"></a>
+        </form>
+           <a href="" class="btn btn-danger btn-lg btn-block" id="cancel">Cancel</a>
+    </div>
+  </div>
+</div>
     <header>
          <title>Jigger, It's Party Time</title>
     </header>
@@ -62,14 +79,17 @@
   <br>
   choose a spot on the map
 </b>
-<div style="width:600px;height:300px;border:2px dotted red;">
+<!-- <div style="width:600px;height:300px;border:2px dotted red;"> -->
   <table><tr><td>
    <div id="map-canvas"></div>
  </center></td>
       <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td>
  <div class="btn-group">
-  <button type="button" class="btn btn-danger btn-lg">Post</button>
-</div></td></tr></table>
+ </td></tr><tr><td>
+  <br>
+  <center>
+    <button type="button" class="btn btn-danger btn-lg">Post</button>
+<!--</div>--></td></tr></table>
   </div>
 </div>
 </html>
@@ -78,8 +98,12 @@
   display :none;
 }
 #map-canvas {
+  height: 500px;
+  width: 1200px;
+  z-index: 0;
+}
+#modal {
   height: 300px;
   width: 400px;
-  z-index: 0;
 }
 </style>

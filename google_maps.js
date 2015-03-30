@@ -1,3 +1,5 @@
+var markerExists = false;
+var marker;
 function geolocate()
 {
   var input = document.getElementById('addr');
@@ -17,11 +19,30 @@ function geolocate()
 }
 function placeMarker(location)
 {
-    var marker = new google.maps.Marker({
+  if(markerExists){} else {
+     marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
     });
+    markerExists = true;
+     if(marker.visible){
+        $('#myModal').modal('show');
+      console.log(marker.position);
+      codeLatLng(marker.position.k, marker.position.D, 2);
+     }
+   }
 }
+function geocodePosition(pos) {
+  geocoder.geocode({
+    latLng: pos
+  }, function(responses) {
+    if (responses && responses.length > 0) {
+      alert(responses[0].formatted_address);
+    } else {
+      alert('Cannot determine address at this location.');
+     }
+   });
+  }
 function codeAddress(addr)
 {
   var geocoder;
@@ -32,8 +53,8 @@ function codeAddress(addr)
     {
       console.log(results[0].geometry.location);
       var lat = results[0].geometry.location.k;
-      var long = results[0].geometry.location.D;
-      codeLatLng(lat,long);
+      var longi = results[0].geometry.location.D;
+      codeLatLng(lat,longi,1);
     }
     else
     {
@@ -41,12 +62,13 @@ function codeAddress(addr)
     }
   });
 }
-function codeLatLng(lat, lng)
+function codeLatLng(lat, lng, type)
 {
-  //Geocoder takes longitude and latitude and sets it to an adress.
-  var geocoder;
+   var geocoder;
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(lat, lng);
+  if(type == 1){
+  //Geocoder takes longitude and latitude and sets it to an adress.
   geocoder.geocode({'latLng': latlng}, function(results, status)
   {
     if (status == google.maps.GeocoderStatus.OK)
@@ -63,6 +85,21 @@ function codeLatLng(lat, lng)
         alert("Geocoder failed due to: " + status);
     }
   });
+} else if(type > 1){
+  geocoder.geocode({'latLng': latlng}, function(results, status)
+  {
+    if (status == google.maps.GeocoderStatus.OK)
+    {
+       $('#addrss').html(results[0].formatted_address);
+       $("#partySubmit").prepend('<input type="hidden" value="' + results[0].formatted_address + '" id="adrs" name="adrs" />');
+        console.log(results[0].formatted_address);
+    }
+    else
+    {
+        alert("Geocoder failed due to: " + status);
+    }
+  });
+}
 }
 function showPosition(position)
 {
@@ -83,6 +120,17 @@ function showPosition(position)
 }
 $(document).ready(function()
 {
+  $("#cancel").click(function(event){
+  event.preventDefault();
+  console.log("hello");
+  marker.setMap(null);
+  markerExists = false;
+   $('#myModal').modal('hide');
+});
+ $('#myModal').on('hidden.bs.modal', function (e) {
+  marker.setMap(null);
+  markerExists = false;
+      });
   geolocate();
   if (navigator.geolocation)
   {
@@ -106,4 +154,3 @@ $(document).ready(function()
       $postform.show();
     });
 });
-

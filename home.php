@@ -1,4 +1,4 @@
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+ <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
